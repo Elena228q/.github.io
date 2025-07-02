@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Олег и Екатерина | Свадьба 12.09.2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beige: #F5F5DC;
+            --light-brown: #D2B48C;
+            --dark-brown: #8B4513;
+            --white: #FFFFFF;
+            --gray: #808080;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--beige);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('images/background-pattern.png');
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            margin: 0;
+            color: var(--dark-brown);
+            letter-spacing: 2px;
+        }
+        
+        .names {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            color: var(--dark-brown);
+        }
+        
+        .date-place {
+            font-size: 1.5em;
+            margin: 30px 0;
+            color: var(--gray);
+        }
+        
+        .main-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .invitation-text {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .rsvp-btn {
+            display: inline-block;
+            background-color: var(--light-brown);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+        }
+        
+        .rsvp-btn:hover {
+            background-color: var(--dark-brown);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(139, 69, 19, 0.3);
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            color: var(--gray);
+            font-size: 0.9em;
+        }
+        
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.3s; }
+        .delay-2 { animation-delay: 0.6s; }
+        .delay-3 { animation-delay: 0.9s; }
+        
+        /* Адаптивность */
+        @media (max-width: 600px) {
+            h1 { font-size: 2em; }
+            .names { font-size: 1.5em; gap: 15px; }
+            .date-place { font-size: 1.2em; }
+            .invitation-text { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="animate">
+            <h1>Мы женимся!</h1>
+            <div class="names animate delay-1">
+                <span>ОЛЕГ</span>
+                <span>ЕКАТЕРИНА</span>
+            </div>
+        </header>
+        
+        <img src="images/wedding-photo.jpg" alt="Олег и Екатерина" class="main-image animate delay-1">
+        
+        <div class="date-place animate delay-2">
+            <p>12 СЕНТЯБРЯ 2025</p>
+            <p>г. Смоленск, ул. Глинки, д. 4</p>
+        </div>
+        
+        <div class="invitation-text animate delay-2">
+            <h2>Дорогие гости!</h2>
+            <p>Вы получили это сообщение, а значит, мы спешим поделиться с вами радостной новостью – у нас скоро свадьба!</p>
+            <p>Мы приглашаем вас разделить с нами радость этого особенного события и стать частью нашей семейной истории.</p>
+            <p>Ваше присутствие сделает наш день еще более значимым и незабываемым.</p>
+        </div>
+        
+        <button class="rsvp-btn animate delay-3" id="rsvpBtn">Подтвердить участие</button>
+        
+        <div id="rsvpForm" style="display: none;" class="animate">
+            <div class="invitation-text">
+                <h3>Подтвердите ваше участие</h3>
+                <form id="weddingForm">
+                    <input type="text" placeholder="Ваше имя" required style="padding: 12px; margin: 10px 0; width: 80%; max-width: 300px; border: 1px solid #ddd; border-radius: 4px;">
+                    <input type="email" placeholder="Ваш email" required style="padding: 12px; margin: 10px 0; width: 80%; max-width: 300px; border: 1px solid #ddd; border-radius: 4px;">
+                    <input type="number" placeholder="Количество гостей" min="1" style="padding: 12px; margin: 10px 0; width: 80%; max-width: 300px; border: 1px solid #ddd; border-radius: 4px;">
+                    <button type="submit" class="rsvp-btn" style="margin-top: 15px;">Отправить</button>
+                </form>
+            </div>
+        </div>
+        
+        <footer class="animate delay-3">
+            <p>С любовью,<br>Олег и Екатерина</p>
+        </footer>
+    </div>
+
+    <script>
+        // Плавное появление элементов
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.animate');
+            elements.forEach(el => el.style.opacity = '0');
+            
+            setTimeout(() => {
+                elements.forEach(el => {
+                    if (el.getBoundingClientRect().top < window.innerHeight) {
+                        el.style.opacity = '1';
+                    }
+                });
+            }, 100);
+            
+            window.addEventListener('scroll', function() {
+                elements.forEach(el => {
+                    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                        el.style.opacity = '1';
+                    }
+                });
+            });
+        });
+        
+        // Форма подтверждения
+        document.getElementById('rsvpBtn').addEventListener('click', function() {
+            const form = document.getElementById('rsvpForm');
+            if (form.style.display === 'none') {
+                form.style.display = 'block';
+                this.textContent = 'Скрыть форму';
+                form.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                form.style.display = 'none';
+                this.textContent = 'Подтвердить участие';
+            }
+        });
+        
+        // Обработка формы
+        document.getElementById('weddingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо за подтверждение! Мы с радостью ждём вас на нашей свадьбе.');
+            this.reset();
+            document.getElementById('rsvpForm').style.display = 'none';
+            document.getElementById('rsvpBtn').textContent = 'Подтвердить участие';
+        });
+        
+        // Таймер до свадьбы
+        function updateCountdown() {
+            const weddingDate = new Date('2025-09-12').getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            
+            document.getElementById('countdown').innerHTML = `
+                <p>До нашей свадьбы осталось:</p>
+                <p><strong>${days}</strong> дней <strong>${hours}</strong> часов <strong>${minutes}</strong> минут</p>
+            `;
+        }
+        
+        // Создаем элемент таймера
+        const countdownEl = document.createElement('div');
+        countdownEl.id = 'countdown';
+        countdownEl.style.textAlign = 'center';
+        countdownEl.style.margin = '20px 0';
+        countdownEl.style.fontSize = '1.2em';
+        countdownEl.style.color = 'var(--dark-brown)';
+        document.querySelector('.date-place').after(countdownEl);
+        
+        updateCountdown();
+        setInterval(updateCountdown, 60000);
+    </script>
+</body>
+</html>
